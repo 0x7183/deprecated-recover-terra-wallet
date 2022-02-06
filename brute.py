@@ -36,15 +36,12 @@ if __name__ == "__main__":
 
     with open('en.txt') as f:
         words = f.read().splitlines()
-    f.close()
 
     with open ('seed.txt') as s:
         seed = s.read()
-    s.close()
 
     with open ('pub_key.txt') as p:
         pub_key = p.read()
-    p.close()
     
     print("[+] Starting with soft-brute-forcing")
     seed_phrase = similar_word(seed, words, pub_key)
