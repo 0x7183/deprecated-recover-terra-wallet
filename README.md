@@ -9,8 +9,10 @@ The success of the operation is not guaranteed.
 
 Usage:
 
-* Copy the wrong seed phrase in `seed.txt`
+* Copy the wrong seed phrase in `seed.txt
 * Copy your address in `pub_key.txt`
+
+Don't insert space or new line in the files.
 
 From cmd exec the command:
 ```
