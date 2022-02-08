@@ -6,7 +6,7 @@ The script works only if you have access to a similar seed phrase e.g. while cop
 
 **Disclaimer:**
 
-This script was made to help people recover their Terra wallet in case they made a mistake in copying words during the creation of their wallet.
+This script was made to help people recover their Terra wallet in case they made a mistake in copying words during the creation of the wallet.
 The success of the operation is not guaranteed.
 
 Usage:
