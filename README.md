@@ -1,10 +1,12 @@
 # Recover-terra-wallet
 
-A simple python script that can be used to brute forcing a single word from your seed phrase.
+A simple python script that can be used to brute forcing your seed phrase.
+
+The script works only if you have access to a similar seed phrase e.g. while copying your seed phrase you wrote `big` insted of `bug`.
 
 **Disclaimer:**
 
-This script was made to help people recover their Terra wallet in case they made a mistake in copying a word during the creation of their wallet.
+This script was made to help people recover their Terra wallet in case they made a mistake in copying words during the creation of their wallet.
 The success of the operation is not guaranteed.
 
 Usage:
