@@ -69,10 +69,10 @@ if __name__ == "__main__":
         words = f.read().splitlines()
 
     with open ('seed.txt') as s:
-        seed = s.read()
+        seed = s.read().splitlines()[0]
 
     with open ('pub_key.txt') as p:
-        pub_key = p.read()
+        pub_key = p.read().splitlines()[0]
     
     print("[+] Starting with soft-forcing")
     seed_phrase = soft_force(seed, words, pub_key)
