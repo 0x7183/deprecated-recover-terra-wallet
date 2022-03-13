@@ -27,11 +27,17 @@ After the recover of your seed phrase is highly recommended to:
 * Click on `Download Zip` and save the file on your PC
 * Unzip the downloaded directory
 * Navigate in the `dist` directory
-* Select the exec file for your OS
-* Double click on it
+* Select the exec directory for your OS
+* Double click on the file `_run`
 * Delete the default message in the first box and insert your seed phrase
 * Delete the default message in the second box and insert your address
 * Click the `Start` button and wait
+
+On macOS the double click may not work, if this is your case then:
+
+* Open your terminal
+* Copy and paste into it `cd Downloads/recover-terra-wallet/dist/macOS`
+* Then copy and paste into it `./_run`
 
 DO NOTHING ON GITHUB!!
 
