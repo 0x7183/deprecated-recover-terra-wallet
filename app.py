@@ -5,7 +5,7 @@ def main():
 
     root = Tk()
 
-    with open('en.txt') as f:
+    with open('../en.txt') as f:
         words = f.read().splitlines()
 
     root.title("Recover your Terra Wallet")
