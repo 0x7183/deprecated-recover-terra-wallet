@@ -5,7 +5,7 @@ A simple python script that can be used to brute forcing your seed phrase.
 The script works only if you have access to a similar seed phrase e.g. while copying your seed phrase you wrote `big` insted of `bug`.
 For the correct operation of this program you'll need your address and your wrong seed phrase, if you don't have access to this information, this program is not for you.
 
-**Disclaimer:**
+## Disclaimer:
 
 This script was made to help people recover their Terra wallet in case they made a mistake in copying words during the creation of the wallet.
 This script should be used as last chance and the success of the operation is not guarantee.
@@ -21,7 +21,7 @@ After the recover of your seed phrase is highly recommended to:
 * Restore it with your new seed phrase
 * Move all your funds to this new address
 
-Usage for non developer:
+## Usage for non developer:
 
 * Click on the `Code` button in this page
 * Click on `Download Zip` and save the file on your PC
@@ -35,7 +35,7 @@ Usage for non developer:
 
 DO NOTHING ON GITHUB!!
 
-Usage for developer:
+## Usage for developer:
 
 * Run `python app.py` in your terminal
 * Delete the default message in the first box and insert your seed phrase
@@ -43,7 +43,8 @@ Usage for developer:
 * Click the `Start` button and wait
 
 If you have recovered your seed and would like to thank us you can help us paying our bills:
-terra1mjws9dnh99q7f5mfx6u4hlahgp60as2n6ggrtn
+
+`terra1mjws9dnh99q7f5mfx6u4hlahgp60as2n6ggrtn`
 
 Good luck!
 
