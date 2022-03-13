@@ -10,8 +10,9 @@ For the correct operation of this program you'll need your address and your wron
 This script was made to help people recover their Terra wallet in case they made a mistake in copying words during the creation of the wallet.
 This script should be used as last chance and the success of the operation is not guarantee.
 
-The code is open source and can be read and used by anyone, for usability reason we compiled some executables for non developer.
-The authors do not assume any kind of responsability regarding the possible loss of funds, use this tool at your own risk.
+The code is open source and can be read and used by anyone, for usability reason we compiled some executables with pyinstaller for non developer.
+Remember that using executable files or code without understanding them is like closing your eyes and crossing the highway.
+The authors do not assume any kind of responsability regarding the possible loss of funds, use this tool at YOUR OWN RISK.
 
 After the recover of your seed phrase is highly recommended to:
 
@@ -28,7 +29,7 @@ After the recover of your seed phrase is highly recommended to:
 * Unzip the downloaded directory
 * Navigate in the `dist` directory
 * Select the exec directory for your OS
-* Double click on the file `_run`
+* Double click on the file `_run.exe` (Windows) `_run` (macOS)
 * Delete the default message in the first box and insert your seed phrase
 * Delete the default message in the second box and insert your address
 * Click the `Start` button and wait
