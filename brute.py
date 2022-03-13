@@ -14,7 +14,7 @@ def soft_force(seed, words, pub_key, n = 10):
         for match in matches:
             possible_seed = seed.replace(word, match)
             if check_key(possible_seed, pub_key):
-                return True            
+                return possible_seed            
     return False
 
 # This try all combination with all the list words
@@ -24,7 +24,7 @@ def brute_force(seed, words, pub_key):
         for seed_word in seed_list:
             possible_seed = seed.replace(seed_word, possible_word)
             if check_key(possible_seed, pub_key):
-                return True
+              return possible_seed     
 
     return False
 
@@ -47,50 +47,36 @@ def almost_brute_force(seed, words, pub_key, n = 2):
     for combination in combinations:
         possible_seed = " ".join(combination)
         if check_key(possible_seed, pub_key):
-            return True
-        
+          return possible_seed
+
     return False
-
-
+    
 def check_key(seed, pub_key):
     terra = LCDClient("https://bombay-lcd.terra.dev/", "bombay-12")  # testnet
     key = MnemonicKey(seed)
     wallet = terra.wallet(key)
     possible_pub_key = wallet.key.acc_address
     if possible_pub_key == pub_key:
-        print("[*] Seed recovered:\n" + seed)
         return True
     else:
         return False
 
-if __name__ == "__main__":
+def brute(seed, words, pub_key):
 
-    with open('en.txt') as f:
-        words = f.read().splitlines()
-
-    with open ('seed.txt') as s:
-        seed = s.read().splitlines()[0]
-
-    with open ('pub_key.txt') as p:
-        pub_key = p.read().splitlines()[0]
-    
-    print("[+] Starting with soft-forcing")
     seed_phrase = soft_force(seed, words, pub_key)
+    if seed_phrase != False:
+        return seed_phrase
     
-    if seed_phrase:
-        exit()
-
     seed_phrase = almost_brute_force(seed, words, pub_key)
 
-    if seed_phrase:
-        exit()
-
-    print("[-] No seed found, \n[+] Starting with brute-forcing")
+    if seed_phrase != False:
+        return seed_phrase
 
     seed_phrase = brute_force(seed, words, pub_key)
 
-    if seed_phrase:
-        exit()
+    if seed_phrase != False:
+        return seed_phrase  
     else:
-        print("[-] Sorry, can't recover the phrase check for spaces or newlines in seed.txt/pub_key.txt")
+        return "We are sorry, we can't recover this wallet :("
+ 
 
