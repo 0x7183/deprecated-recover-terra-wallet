@@ -1,7 +1,8 @@
-from terra_sdk.client.lcd import LCDClient, wallet
+from terra_sdk.client.lcd import LCDClient
 from terra_sdk.key.mnemonic import MnemonicKey
 import difflib
 import itertools
+from sys import exit
 
 ####### EXACTLY ONE ERROR #######
 
