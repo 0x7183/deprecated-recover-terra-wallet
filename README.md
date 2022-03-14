@@ -44,6 +44,7 @@ DO NOTHING ON GITHUB!!
 
 ## Usage for developer:
 
+* Navigate to `recover-terra-wallet/src/`
 * Run `python app.py` in your terminal
 * Delete the default message in the first box and insert your seed phrase
 * Delete the default message in the second box and insert your address
