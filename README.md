@@ -28,27 +28,27 @@ After the recover of your seed phrase is highly recommended to:
 * Click on `Download Zip` and save the file on your PC
 * Unzip the downloaded directory
 * Navigate in the `dist` directory
-* Select the exec directory for your OS
-* Double click on the file `_run.exe` (Windows) `_run` (macOS)
-* Delete the default message in the first box and insert your seed phrase
-* Delete the default message in the second box and insert your address
-* Click the `Start` button and wait
+* Double click on the file `windows_run.exe` (Windows) `macOS_run` (macOS)
+* Insert your seed phrase in the first box
+* Insert your address in the second box
+* Click the `START` button and wait
 
 On macOS the double click may not work, if this is your case then:
 
 * Open your terminal
 * Copy and paste into it `cd Downloads/recover-terra-wallet/dist/macOS`
-* Then copy and paste into it `./_run`
+* Then copy and paste into it `./macOS_run`
 
 DO NOTHING ON GITHUB!!
 
 ## Usage for developer:
 
 * Navigate to `recover-terra-wallet/src/`
+* Run `pip install terra_sdk kivy cdifflib` in your terminal
 * Run `python app.py` in your terminal
-* Delete the default message in the first box and insert your seed phrase
-* Delete the default message in the second box and insert your address
-* Click the `Start` button and wait
+* Insert your seed phrase in the first box
+* Insert your address in the second box
+* Click the `START` button and wait
 
 If you have recovered your seed and would like to thank us you can help us paying our bills:
 
