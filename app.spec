@@ -5,7 +5,7 @@ from PyInstaller.utils.hooks import get_package_paths
 block_cipher = None
 
 
-a = Analysis(['src\\app.py'],
+a = Analysis(['src/app.py'],
              pathex=[],
              binaries=[],
              datas=[(get_package_paths('orderedmultidict')[1] + "/__version__.py", 'orderedmultidict')],
