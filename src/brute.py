@@ -2,38 +2,50 @@ from terra_sdk.client.lcd import LCDClient
 from terra_sdk.key.mnemonic import MnemonicKey
 import difflib
 import itertools
-from sys import exit
+
+####### UTILS #######
+
+def check_seed(seed, address, blockchain='Terra'):
+
+    if blockchain == 'Terra':
+        chain = LCDClient("https://bombay-lcd.terra.dev/", "bombay-12")  # testnet
+
+    key = MnemonicKey(seed)
+    wallet = chain.wallet(key)
+    possible_address = wallet.key.acc_address
+    if possible_address == address:
+        return True
+    else:
+        return False
 
 ####### EXACTLY ONE ERROR #######
 
-
 # For each word in your seed phrase it looks for n closer words and test them
-def soft_force(seed, words, pub_key, n = 10):
+def one_error_close_words(seed, words, address, n = 10):
     seed_list = seed.split()
     for word in seed_list:
         matches = difflib.get_close_matches(word, words, n)
         for match in matches:
             possible_seed = seed.replace(word, match)
-            if check_key(possible_seed, pub_key):
+            if check_seed(possible_seed, address):
                 return possible_seed            
     return False
 
-# This try all combination with all the list words
-def brute_force(seed, words, pub_key):
+# This try all combination with all the words
+def one_error_all_words(seed, words, address):
     seed_list = seed.split()
     for possible_word in words:
         for seed_word in seed_list:
             possible_seed = seed.replace(seed_word, possible_word)
-            if check_key(possible_seed, pub_key):
+            if check_seed(possible_seed, address):
               return possible_seed     
 
     return False
 
-####### MORE THEN ONE ERROR #######
+####### UP TO 24 SMALL ERRORS OR WRONG WORDS POSITIONS #######
 
-# For each word in your seed phrase it looks for n closer words, then test all the combination with 1 element from each closer words list
-# With n > 2 that will take forever, at least on my computer
-def almost_brute_force(seed, words, pub_key, n = 2):
+# For each word in your seed phrase it looks for n closer words, then test for all the combinations of these words
+def multiple_errors(seed, words, address, n = 2):
     seed_list = seed.split()
     matches = []
     # Getting close words
@@ -42,38 +54,36 @@ def almost_brute_force(seed, words, pub_key, n = 2):
         matches.append(match)
 
     # Generating all combinations
-    combinations = [p for p in itertools.product(*matches)]
+    combinations = itertools.combinations(matches, 24)
+
+    for possible_seed in combinations:
+        if check_seed(possible_seed, address):
+          return possible_seed
+
+    # Generating all the products
+    products = [p for p in itertools.product(*matches)]
 
     # Checking all possible seeds
-    for combination in combinations:
-        possible_seed = " ".join(combination)
-        if check_key(possible_seed, pub_key):
+    for product in products:
+        possible_seed = " ".join(product)
+        if check_seed(possible_seed, address):
           return possible_seed
 
     return False
-    
-def check_key(seed, pub_key):
-    terra = LCDClient("https://bombay-lcd.terra.dev/", "bombay-12")  # testnet
-    key = MnemonicKey(seed)
-    wallet = terra.wallet(key)
-    possible_pub_key = wallet.key.acc_address
-    if possible_pub_key == pub_key:
-        return True
-    else:
-        return False
 
-def brute(seed, words, pub_key):
 
-    seed_phrase = soft_force(seed, words, pub_key)
+def brute_force(seed, words, address):
+
+    seed_phrase = one_error_close_words(seed, words, address)
     if seed_phrase != False:
         return seed_phrase
     
-    seed_phrase = almost_brute_force(seed, words, pub_key)
+    seed_phrase = one_error_all_words(seed, words, address)
 
     if seed_phrase != False:
         return seed_phrase
 
-    seed_phrase = brute_force(seed, words, pub_key)
+    seed_phrase = multiple_errors(seed, words, address)
 
     if seed_phrase != False:
         return seed_phrase  
