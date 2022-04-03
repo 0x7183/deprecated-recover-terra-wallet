@@ -7,7 +7,7 @@ For the correct operation of this program you'll need your address and your wron
 
 ## Disclaimer:
 
-This script was made to help people recover their Terra wallet in case they made a mistake in copying words during the creation of the wallet.
+This script was made to help people recover their Terra wallet in case they make a mistake in copying words during the creation of the wallet.
 This script should be used as last chance and the success of the operation is not guarantee.
 
 The code is open source and can be read and used by anyone, for usability reason we compiled some executables with pyinstaller for non developer.
