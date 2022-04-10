@@ -5,6 +5,8 @@ A simple python script that can be used to brute forcing your seed phrase.
 The script works only if you have access to a similar seed phrase e.g. while copying your seed phrase you wrote `big` insted of `bug`.
 For the correct operation of this program you'll need your address and your wrong seed phrase, if you don't have access to this information, this program is not for you.
 
+If you can't run the script feel free to ping me in the Terra Discord.
+
 ## Disclaimer:
 
 This script was made to help people recover their Terra wallet in case they make a mistake in copying words during the creation of the wallet.
@@ -36,8 +38,9 @@ After the recover of your seed phrase is highly recommended to:
 On macOS the double click may not work, if this is your case then:
 
 * Open your terminal
-* Copy and paste into it `cd Downloads/recover-terra-wallet/dist/macOS`
-* Then copy and paste into it `./macOS_run`
+* Copy and paste into it `cd Downloads/recover-terra-wallet-main/dist`
+* Copy and paste `chmod 755 ./macOS_run`
+* Then copy and paste it `./macOS_run`
 
 DO NOTHING ON GITHUB!!
 
