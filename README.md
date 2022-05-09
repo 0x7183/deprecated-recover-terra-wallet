@@ -46,6 +46,7 @@ DO NOTHING ON GITHUB!!
 
 ## Usage for developer:
 
+* Run `git clone https://github.com/0x7183/recover-terra-wallet`
 * Navigate to `recover-terra-wallet/src/`
 * Run `pip install terra_sdk kivy cdifflib` in your terminal
 * Run `python app.py` in your terminal
