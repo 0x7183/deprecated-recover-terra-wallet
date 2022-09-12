@@ -8,7 +8,7 @@ import itertools
 def check_seed(seed, address, blockchain='Terra'):
 
     if blockchain == 'Terra':
-        chain = LCDClient("https://bombay-lcd.terra.dev/", "bombay-12")  # testnet
+        chain = LCDClient("https://pisco-lcd.terra.dev/", "pisco-1")  # testnet
 
     key = MnemonicKey(seed)
     wallet = chain.wallet(key)
